@@ -1,8 +1,6 @@
 package com.example.test.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +14,13 @@ public class Item {
     @GeneratedValue
     private UUID id;
 
-    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
 
+    @Embedded
+    private Product product;
+
+    private Integer quantity;
 
 }
