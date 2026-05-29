@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -18,6 +19,9 @@ public class Order {
 
     private UUID correlationId;
 
+    @OneToMany(mappedBy = "ct_orders", cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Item> items;
+
     private LocalDateTime createdAt;
 
     public static Order of() {
@@ -26,5 +30,13 @@ public class Order {
         order.correlationId = UUID.randomUUID();
         order.createdAt = LocalDateTime.now();
         return order;
+    }
+
+    public void addItems(List<Item> i) {
+        this.items.addAll(i);
+    }
+
+    public void addItem(Item i) {
+        this.items.add(i);
     }
 }
