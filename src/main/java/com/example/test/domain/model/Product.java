@@ -7,7 +7,7 @@ import jakarta.persistence.Enumerated;
 import java.math.BigDecimal;
 
 @Embeddable
-record Product(String name, BigDecimal value, Integer quantity, @Enumerated(EnumType.STRING) ProductType type) {
+record Product(String name, BigDecimal value, @Enumerated(EnumType.STRING) ProductType type) {
 
     enum ProductType {
         FOOD,
