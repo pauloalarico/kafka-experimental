@@ -1,4 +1,4 @@
-package com.example.test.infra.repository;
+package com.example.test.infra.persistence.repository;
 
 import com.example.test.domain.model.Order;
 import com.example.test.domain.port.out.OrderPersist;
