@@ -1,4 +1,4 @@
-package com.example.test.domain.enums;
+package com.example.test.domain.event;
 
 public enum EventStatus {
     CREATED,

@@ -10,7 +10,6 @@ import java.util.UUID;
 public record CreateOrderResponse(
         UUID id,
         UUID correlationId,
-        EventStatus status,
         List<Item> items,
         LocalDateTime createdAt
 ) {
