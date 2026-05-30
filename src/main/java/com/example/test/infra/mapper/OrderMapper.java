@@ -1,7 +1,6 @@
 package com.example.test.infra.mapper;
 
 import com.example.test.application.dto.response.CreateOrderResponse;
-import com.example.test.domain.enums.EventStatus;
 import com.example.test.domain.model.Order;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,7 @@ public class OrderMapper {
     public CreateOrderResponse toResponse(Order order) {
         return new CreateOrderResponse(
                 order.getId(), order.getCorrelationId(),
-                EventStatus.CREATED, order.getItems(), LocalDateTime.now()
+                order.getItems(), LocalDateTime.now()
         );
     }
 
