@@ -23,6 +23,7 @@ public class CreateOrderUseCase {
     public CreateOrderResponse save(CreateOrderRequest request) {
         var order = mapper.toOrder();
         order.addItems(request.items());
+        persist.save(order);
         return mapper.toResponse(order);
     }
 
