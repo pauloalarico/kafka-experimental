@@ -29,7 +29,7 @@ public class CreateOrderUseCase {
         var order = mapper.toOrder();
         order.addItems(request.items());
         persist.save(order);
-        var event = new OrderCreatedEvent(order.getId(), order.getCorrelationId(), order.getItems());
+        var event = new OrderCreatedEvent(order.getId(), order.getCorrelationId(), order.getItems(), order.getTotal());
         eventPublisher.send(event);
         return mapper.toResponse(order);
     }
