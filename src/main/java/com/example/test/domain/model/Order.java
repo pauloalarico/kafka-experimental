@@ -38,14 +38,13 @@ public class Order {
 
     public void addItems(List<Item> i) {
         this.items.addAll(i);
-        calculateTotal();
     }
 
-    private void calculateTotal() {
-        this.total = items.stream().map(
-                i -> new BigDecimal(i.getQuantity()).multiply(i.getProduct().value()))
-                .reduce(this.total != null ? total : BigDecimal.ZERO, BigDecimal::add);
-    }
+//    private void calculateTotal() {
+//        this.total = items.stream().map(
+//                i -> new BigDecimal(i.getQuantity()).multiply(i.getProduct().value()))
+//                .reduce(this.total != null ? total : BigDecimal.ZERO, BigDecimal::add);
+//    }
 
     public void addItem(Item i) {
         this.items.add(i);
