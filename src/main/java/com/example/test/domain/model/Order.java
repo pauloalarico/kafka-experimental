@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,6 +34,7 @@ public class Order {
         order.correlationId = UUID.randomUUID();
         order.createdAt = LocalDateTime.now();
         order.total = null;
+        order.items = new ArrayList<>();
         return order;
     }
 
