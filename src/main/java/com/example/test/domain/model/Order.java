@@ -20,7 +20,7 @@ public class Order {
 
     private UUID correlationId;
 
-    @OneToMany(mappedBy = "ct_orders", cascade = CascadeType.DETACH, orphanRemoval = true)
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 
     private LocalDateTime createdAt;
